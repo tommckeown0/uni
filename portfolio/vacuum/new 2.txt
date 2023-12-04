@@ -1,0 +1,151 @@
+CSC : error EnableGenerateDocumentationFile: Set MSBuild property 'GenerateDocumentationFile' to 'true' in project file to enable IDE0005 (Remove unnecessary usings/imports) on build (https://github.com/dotnet/ros
+lyn/issues/41640) [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\enrich\Bds.Enrich\Bds.Enrich.csproj]
+CSC : error EnableGenerateDocumentationFile: Set MSBuild property 'GenerateDocumentationFile' to 'true' in project file to enable IDE0005 (Remove unnecessary usings/imports) on build (https://github.com/dotnet/ros
+lyn/issues/41640) [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\entity\Bds.Entity\Bds.Entity.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\AdminRegistration.cs(28,21): error CS1591: Missing XML comment for publicly visible type or member 'AdminRegistration' [C:\Users\Thomas
+McKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\AdminRegistration.cs(30,38): error CS1591: Missing XML comment for publicly visible type or member 'AdminRegistration.AddAdmin(IService
+Collection, KeycloakOptions, EmailOptions, UserInviteOptions)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Cases\UpdateCaseTitleCommandValidator.cs(6,14): error CS1591: Missing XML comment for publicly visible type or member 'UpdateCaseT
+itleCommandValidator' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Cases\UpdateCaseTitleCommandValidator.cs(8,12): error CS1591: Missing XML comment for publicly visible type or member 'UpdateCaseT
+itleCommandValidator.UpdateCaseTitleCommandValidator()' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\DisplayNameValidator.cs(7,14): error CS1591: Missing XML comment for publicly visible type or member 'DisplayNameValidator' [C:\Us
+ers\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\DisplayNameValidator.cs(11,12): error CS1591: Missing XML comment for publicly visible type or member 'DisplayNameValidator.Displa
+yNameValidator()' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\EmailValidator.cs(7,14): error CS1591: Missing XML comment for publicly visible type or member 'EmailValidator' [C:\Users\ThomasMc
+Keown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\EmailValidator.cs(12,12): error CS1591: Missing XML comment for publicly visible type or member 'EmailValidator.EmailValidator()'
+[C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Organisations\IOrganisationRepository.cs(5,18): error CS1591: Missing XML comment for publicly visible type or member 'IOrganisati
+onRepository' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Organisations\IOrganisationRepository.cs(7,10): error CS1591: Missing XML comment for publicly visible type or member 'IOrganisati
+onRepository.UpdateOrganisationAsync(string, bool, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Organisations\IOrganisationRepository.cs(12,24): error CS1591: Missing XML comment for publicly visible type or member 'IOrganisat
+ionRepository.CreateOrganisationAsync(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Organisations\IOrganisationRepository.cs(16,10): error CS1591: Missing XML comment for publicly visible type or member 'IOrganisat
+ionRepository.DeleteOrganisationAsync(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Organisations\IOrganisationRepository.cs(20,24): error CS1591: Missing XML comment for publicly visible type or member 'IOrganisat
+ionRepository.GetOrganisationAsync(string, bool, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Organisations\IOrganisationRepository.cs(25,24): error CS1591: Missing XML comment for publicly visible type or member 'IOrganisat
+ionRepository.ResetOrganisationAsync(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Organisations\IOrganisationRepository.cs(29,19): error CS1591: Missing XML comment for publicly visible type or member 'IOrganisat
+ionRepository.UpdateOrganisationLicenceAsync(string, Licence, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Organisations\UpdateOrganisationLicenceCommandValidator.cs(9,14): error CS1591: Missing XML comment for publicly visible type or m
+ember 'UpdateOrganisationLicenceCommandValidator' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Organisations\UpdateOrganisationLicenceCommandValidator.cs(13,12): error CS1591: Missing XML comment for publicly visible type or
+member 'UpdateOrganisationLicenceCommandValidator.UpdateOrganisationLicenceCommandValidator(IRolesRepository)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Roles\GetAllRolesQueryHandler.cs(7,14): error CS1591: Missing XML comment for publicly visible type or member 'GetAllRolesQueryHan
+dler' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Roles\GetAllRolesQueryHandler.cs(11,12): error CS1591: Missing XML comment for publicly visible type or member 'GetAllRolesQueryHa
+ndler.GetAllRolesQueryHandler(IRolesRepository)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Roles\GetAllRolesQueryHandler.cs(17,36): error CS1591: Missing XML comment for publicly visible type or member 'GetAllRolesQueryHa
+ndler.Handle(GetAllRolesRequest, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Roles\IRolesRepository.cs(5,18): error CS1591: Missing XML comment for publicly visible type or member 'IRolesRepository' [C:\User
+s\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Roles\IRolesRepository.cs(7,23): error CS1591: Missing XML comment for publicly visible type or member 'IRolesRepository.Roles' [C
+:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\UserInvites\CreateUserInviteCommandValidator.cs(8,14): error CS1591: Missing XML comment for publicly visible type or member 'Crea
+teUserInviteCommandValidator' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\UserInvites\CreateUserInviteCommandValidator.cs(12,12): error CS1591: Missing XML comment for publicly visible type or member 'Cre
+ateUserInviteCommandValidator.CreateUserInviteCommandValidator(IUserRepository)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\UserInvites\IUserInviteRepository.cs(7,18): error CS1591: Missing XML comment for publicly visible type or member 'IUserInviteRepo
+sitory' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\UserInvites\IUserInviteRepository.cs(9,22): error CS1591: Missing XML comment for publicly visible type or member 'IUserInviteRepo
+sitory.CreateUserInviteAsync(CreateUserInviteCommand, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\UserInvites\IUserInviteRepository.cs(13,22): error CS1591: Missing XML comment for publicly visible type or member 'IUserInviteRep
+ository.UpdateUserInviteAsync(UpdateUserInviteCommand, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\UserInvites\IUserInviteRepository.cs(17,10): error CS1591: Missing XML comment for publicly visible type or member 'IUserInviteRep
+ository.DeleteUserInviteAsync(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\UserInvites\IUserInviteRepository.cs(21,35): error CS1591: Missing XML comment for publicly visible type or member 'IUserInviteRep
+ository.AllUserInvitesAsync(GetAllUserInvitesRequest, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\UserInvites\IUserInviteRepository.cs(25,23): error CS1591: Missing XML comment for publicly visible type or member 'IUserInviteRep
+ository.GetUserInviteByEmailAsync(string, string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\UserInvites\IUserInviteRepository.cs(28,22): error CS1591: Missing XML comment for publicly visible type or member 'IUserInviteRep
+ository.GetUserInviteAsync(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\BulkUpdateUserRolesCommandValidator.cs(9,14): error CS1591: Missing XML comment for publicly visible type or member 'BulkUpd
+ateUserRolesCommandValidator' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\BulkUpdateUserRolesCommandValidator.cs(15,12): error CS1591: Missing XML comment for publicly visible type or member 'BulkUp
+dateUserRolesCommandValidator.BulkUpdateUserRolesCommandValidator(IUserRepository, IRolesRepository)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\CreateUserCommandValidator.cs(14,14): error CS1591: Missing XML comment for publicly visible type or member 'CreateUserComma
+ndValidator' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\CreateUserCommandValidator.cs(33,12): error CS1591: Missing XML comment for publicly visible type or member 'CreateUserComma
+ndValidator.CreateUserCommandValidator(IUserRepository, IUnitOfWork, IDateTimeService, UserInviteOptions, IOrganisationProvider)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.
+Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\Factories\IUserProfileFactory.cs(8,18): error CS1591: Missing XML comment for publicly visible type or member 'IUserProfileF
+actory' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\Factories\IUserProfileFactory.cs(10,17): error CS1591: Missing XML comment for publicly visible type or member 'IUserProfile
+Factory.Create(CreateUserCommand)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\Factories\IUserProfileFactory.cs(11,17): error CS1591: Missing XML comment for publicly visible type or member 'IUserProfile
+Factory.Create(User, Mapping)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\Factories\IUserProfileFactory.cs(12,17): error CS1591: Missing XML comment for publicly visible type or member 'IUserProfile
+Factory.CreateInitialUser(CreateUserCommand)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(6,18): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository' [C:\Users\
+ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(8,23): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.CreateUserA
+sync(CreateUserCommand, UserProfile, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(9,16): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.DeleteUserA
+sync(Guid, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(10,16): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.UserEmailI
+sUniqueToUserIdAsync(Guid, string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(11,23): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.UpdateUser
+Async(UpdateUserCommand, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(12,23): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.GetUserAsy
+nc(Guid, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(13,23): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.GetUserAsy
+nc(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(14,36): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.GetAllUser
+sAsync(CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(15,16): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.UserEmailI
+sUniqueAsync(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(16,16): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.BulkUpdate
+UserRolesAsync(BulkUpdateUserRolesCommand, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\IUserRepository.cs(17,29): error CS1591: Missing XML comment for publicly visible type or member 'IUserRepository.GetUserIds
+WithAdminRole(CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\UpdateUserCommandValidator.cs(7,14): error CS1591: Missing XML comment for publicly visible type or member 'UpdateUserComman
+dValidator' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Core\Users\UpdateUserCommandValidator.cs(11,12): error CS1591: Missing XML comment for publicly visible type or member 'UpdateUserComma
+ndValidator.UpdateUserCommandValidator(IUserRepository)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\IKeycloakClientFactory.cs(5,18): error CS1591: Missing XML comment for publicly visible type or member 'IKeycloakClientF
+actory' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\IKeycloakClientFactory.cs(7,26): error CS1591: Missing XML comment for publicly visible type or member 'IKeycloakClientF
+actory.CreateClientForCurrentOrganisation(CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\KeycloakClientFactory.cs(10,14): error CS1591: Missing XML comment for publicly visible type or member 'KeycloakClientFa
+ctory' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\KeycloakClientFactory.cs(17,12): error CS1591: Missing XML comment for publicly visible type or member 'KeycloakClientFa
+ctory.KeycloakClientFactory(IUnitOfWork, IOrganisationProvider, KeycloakOptions, IMemoryCache)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\KeycloakClientFactory.cs(31,39): error CS1591: Missing XML comment for publicly visible type or member 'KeycloakClientFa
+ctory.CreateClientForCurrentOrganisation(CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Organisations\OrganisationRepository.cs(12,14): error CS1591: Missing XML comment for publicly visible type or member 'O
+rganisationRepository' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Organisations\OrganisationRepository.cs(18,12): error CS1591: Missing XML comment for publicly visible type or member 'O
+rganisationRepository.OrganisationRepository(IDbTransaction, string, IMemoryCache)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Organisations\OrganisationRepository.cs(33,17): error CS1591: Missing XML comment for publicly visible type or member 'O
+rganisationRepository.UpdateOrganisationAsync(string, bool, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Organisations\OrganisationRepository.cs(49,31): error CS1591: Missing XML comment for publicly visible type or member 'O
+rganisationRepository.CreateOrganisationAsync(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Organisations\OrganisationRepository.cs(76,17): error CS1591: Missing XML comment for publicly visible type or member 'O
+rganisationRepository.DeleteOrganisationAsync(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Organisations\OrganisationRepository.cs(92,37): error CS1591: Missing XML comment for publicly visible type or member 'O
+rganisationRepository.GetOrganisationAsync(string, bool, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Organisations\OrganisationRepository.cs(129,31): error CS1591: Missing XML comment for publicly visible type or member '
+OrganisationRepository.ResetOrganisationAsync(string, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Organisations\OrganisationRepository.cs(151,32): error CS1591: Missing XML comment for publicly visible type or member '
+OrganisationRepository.UpdateOrganisationLicenceAsync(string, Licence, CancellationToken)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Roles\RolesRepository.cs(6,14): error CS1591: Missing XML comment for publicly visible type or member 'RolesRepository'
+[C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Roles\RolesRepository.cs(8,12): error CS1591: Missing XML comment for publicly visible type or member 'RolesRepository.R
+olesRepository(IEnumerable<Role>)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Roles\RolesRepository.cs(14,30): error CS1591: Missing XML comment for publicly visible type or member 'RolesRepository.
+Roles' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Users\Extensions\UserExtensions.cs(6,21): error CS1591: Missing XML comment for publicly visible type or member 'UserExt
+ensions' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Users\Extensions\UserExtensions.cs(8,26): error CS1591: Missing XML comment for publicly visible type or member 'UserExt
+ensions.GetDisplayName(User)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Users\Factories\IKeycloakUserFactory.cs(6,18): error CS1591: Missing XML comment for publicly visible type or member 'IK
+eycloakUserFactory' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Infrastructure\Users\Factories\IKeycloakUserFactory.cs(8,10): error CS1591: Missing XML comment for publicly visible type or member 'IK
+eycloakUserFactory.Create(CreateUserCommand)' [C:\Users\ThomasMcKeown\source\repos\BlackdotSolutions\web\src\admin\Bds.Admin\Bds.Admin.csproj]
+
+The build failed. Fix the build errors and run again.

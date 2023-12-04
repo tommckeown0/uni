@@ -1,0 +1,14 @@
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\bin\Debug\net7.0\rocketlauncher.exe
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\bin\Debug\net7.0\rocketlauncher.deps.json
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\bin\Debug\net7.0\rocketlauncher.runtimeconfig.json
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\bin\Debug\net7.0\rocketlauncher.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\bin\Debug\net7.0\rocketlauncher.pdb
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\obj\Debug\net7.0\rocketlauncher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\obj\Debug\net7.0\rocketlauncher.AssemblyInfoInputs.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\obj\Debug\net7.0\rocketlauncher.AssemblyInfo.cs
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\obj\Debug\net7.0\rocketlauncher.csproj.CoreCompileInputs.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\obj\Debug\net7.0\rocketlauncher.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\obj\Debug\net7.0\refint\rocketlauncher.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\obj\Debug\net7.0\rocketlauncher.pdb
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\obj\Debug\net7.0\rocketlauncher.genruntimeconfig.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\rocketlauncher\obj\Debug\net7.0\ref\rocketlauncher.dll

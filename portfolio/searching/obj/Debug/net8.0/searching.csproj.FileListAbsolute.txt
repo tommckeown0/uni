@@ -1,0 +1,14 @@
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\bin\Debug\net8.0\searching.exe
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\bin\Debug\net8.0\searching.deps.json
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\bin\Debug\net8.0\searching.runtimeconfig.json
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\bin\Debug\net8.0\searching.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\bin\Debug\net8.0\searching.pdb
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\obj\Debug\net8.0\searching.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\obj\Debug\net8.0\searching.AssemblyInfoInputs.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\obj\Debug\net8.0\searching.AssemblyInfo.cs
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\obj\Debug\net8.0\searching.csproj.CoreCompileInputs.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\obj\Debug\net8.0\searching.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\obj\Debug\net8.0\refint\searching.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\obj\Debug\net8.0\searching.pdb
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\obj\Debug\net8.0\searching.genruntimeconfig.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\searching\obj\Debug\net8.0\ref\searching.dll

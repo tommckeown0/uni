@@ -1,0 +1,14 @@
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\bin\Debug\net8.0\guessing.exe
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\bin\Debug\net8.0\guessing.deps.json
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\bin\Debug\net8.0\guessing.runtimeconfig.json
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\bin\Debug\net8.0\guessing.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\bin\Debug\net8.0\guessing.pdb
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\obj\Debug\net8.0\guessing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\obj\Debug\net8.0\guessing.AssemblyInfoInputs.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\obj\Debug\net8.0\guessing.AssemblyInfo.cs
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\obj\Debug\net8.0\guessing.csproj.CoreCompileInputs.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\obj\Debug\net8.0\guessing.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\obj\Debug\net8.0\refint\guessing.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\obj\Debug\net8.0\guessing.pdb
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\obj\Debug\net8.0\guessing.genruntimeconfig.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\guessing\obj\Debug\net8.0\ref\guessing.dll

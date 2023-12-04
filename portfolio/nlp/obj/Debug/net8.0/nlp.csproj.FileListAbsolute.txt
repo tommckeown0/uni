@@ -1,0 +1,14 @@
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\bin\Debug\net8.0\nlp.exe
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\bin\Debug\net8.0\nlp.deps.json
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\bin\Debug\net8.0\nlp.runtimeconfig.json
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\bin\Debug\net8.0\nlp.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\bin\Debug\net8.0\nlp.pdb
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\obj\Debug\net8.0\nlp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\obj\Debug\net8.0\nlp.AssemblyInfoInputs.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\obj\Debug\net8.0\nlp.AssemblyInfo.cs
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\obj\Debug\net8.0\nlp.csproj.CoreCompileInputs.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\obj\Debug\net8.0\nlp.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\obj\Debug\net8.0\refint\nlp.dll
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\obj\Debug\net8.0\nlp.pdb
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\obj\Debug\net8.0\nlp.genruntimeconfig.cache
+C:\Users\Tom\Downloads\Uni\Uni\AI\portfolio\nlp\obj\Debug\net8.0\ref\nlp.dll
