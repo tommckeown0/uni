@@ -1,4 +1,6 @@
 Make questions loop over a single list
 Use the entire csv file
 Ask maximum 20 questions
-Make the nationality question choose a nationality based on available ones
+*Make the nationality question choose a nationality based on available ones
+
+Set probability of players to 0 when they are eliminated?

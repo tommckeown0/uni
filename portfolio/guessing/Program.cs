@@ -20,6 +20,7 @@ public class Player
     public string Foot { get; set; }
     public int IntlRep { get; set; }
     public string Position { get; set; }
+    public int OverallRating { get; set; }
 }
 
 class Program
@@ -47,6 +48,7 @@ class Program
             Console.WriteLine(players[i].Foot);
             Console.WriteLine(players[i].IntlRep);
             Console.WriteLine(players[i].Position);
+            Console.WriteLine(players[i].OverallRating);
         }
     }
 
@@ -76,7 +78,8 @@ class Program
                     Value = int.Parse(values[12]),
                     Foot = values[15],
                     IntlRep = int.Parse(values[16]),
-                    Position = values[24]
+                    Position = values[24],
+                    OverallRating = int.Parse(values[10])
                 };
 
                 players.Add(player);
