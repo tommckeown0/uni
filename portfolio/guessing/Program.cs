@@ -19,6 +19,7 @@ public class Player
     public int Value { get; set; }
     public string Foot { get; set; }
     public int IntlRep { get; set; }
+    public string Position { get; set; }
 }
 
 class Program
@@ -45,6 +46,7 @@ class Program
             Console.WriteLine(players[i].Value);
             Console.WriteLine(players[i].Foot);
             Console.WriteLine(players[i].IntlRep);
+            Console.WriteLine(players[i].Position);
         }
     }
 
@@ -73,7 +75,8 @@ class Program
                     Club = values[9],
                     Value = int.Parse(values[12]),
                     Foot = values[15],
-                    IntlRep = int.Parse(values[16])
+                    IntlRep = int.Parse(values[16]),
+                    Position = values[24]
                 };
 
                 players.Add(player);

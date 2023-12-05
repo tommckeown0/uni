@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\akinator\\akinator.csproj": {}
+    "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\akinator\\akinator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\akinator\\akinator.csproj": {
+    "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\akinator\\akinator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\akinator\\akinator.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\akinator\\akinator.csproj",
         "projectName": "akinator",
-        "projectPath": "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\akinator\\akinator.csproj",
+        "projectPath": "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\akinator\\akinator.csproj",
         "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\akinator\\obj\\",
+        "outputPath": "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\akinator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

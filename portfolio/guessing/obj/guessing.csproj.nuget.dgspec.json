@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\guessing\\guessing.csproj": {}
+    "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\guessing\\guessing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\guessing\\guessing.csproj": {
+    "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\guessing\\guessing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\guessing\\guessing.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\guessing\\guessing.csproj",
         "projectName": "guessing",
-        "projectPath": "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\guessing\\guessing.csproj",
+        "projectPath": "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\guessing\\guessing.csproj",
         "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tom\\Downloads\\Uni\\Uni\\AI\\portfolio\\guessing\\obj\\",
+        "outputPath": "C:\\Users\\Tom\\Documents\\GitHub\\uni\\portfolio\\guessing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
