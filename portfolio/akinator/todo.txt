@@ -3,4 +3,36 @@ Use the entire csv file
 Ask maximum 20 questions
 *Make the nationality question choose a nationality based on available ones
 
-Set probability of players to 0 when they are eliminated?
+*Set probability of players to 0 when they are eliminated?
+I can also use the probability as a threshold and ignore any players below it.
+I can use this to loop through the questions again asking contextualised questions.
+
+*Change means to medians - more representative of data values
+Add probably/probably not answer options
+Change answers to single character and add validation
+
+Make all questions dynamic
+ - Make separate question list for repeated questions?
+
+
+possible tags:
+
+Playmaker
+Acrobat
+Distance Shooter
+Dribbler
+Aerial Threat
+Clinical Finisher
+Complete Forward
+Crosser
+Poacher
+FK Specialist
+Engine
+Tactician
+Complete Defender
+Complete Midfielder
+Tackling
+Strength
+Speedster
+
+

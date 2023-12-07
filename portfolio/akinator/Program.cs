@@ -15,14 +15,21 @@ public class Footballer
     public double Probability { get; set; }
     public string Position { get; set; }
     public int Rating { get; set; }
+    public int JerseyNumber { get; set; }
+    public List<string> Tags { get; set; }
 }
 
 
 public class BayesianNetwork
 {
     private List<Footballer> footballers;
-    private string topNationality, topPosition;
-    private int meanRating, meanAge;
+    private List<string> tags;
+    private string topNationality, topPosition, tag;
+    private int medianRating, medianAge, medianValue, medianJerseyNumber, questionCount = 0;
+    private Footballer randomFootballer;
+    private double probabilityThreshold;
+    HashSet<int> correctlyAnsweredQuestions = new HashSet<int>();
+
 
     public BayesianNetwork(List<Footballer> footballers)
     {
@@ -42,18 +49,48 @@ public class BayesianNetwork
     {
         Console.WriteLine("Welcome to the Footballer Bayesian Network!");
         Console.WriteLine("Think of a footballer, and I'll try to guess who it is.");
+        SelectRandomFootballer();
+        UpdateTagsFromProbableFootballers();
+
+        Console.WriteLine($"Tags: {string.Join(", ", tags)}");
+        Console.WriteLine($"Number of tags: {tags.Count}");
 
         bool readyToGuess = false;
+
+        foreach (var question in GetOneOffQuestions())
+        {
+            Console.WriteLine($"Number of footballers with probability higher than 0: {getHighProbabilityFootballers()}");
+            DisplayRandomFootballer();
+            DisplayFirstFootballer();
+            Console.WriteLine(question.Value);
+            string answer = Console.ReadLine().ToLower();
+            // Update probabilities based on user responses
+            UpdateProbabilities(question.Key, answer);
+
+            var topTwo = footballers.OrderByDescending(f => f.Probability).Take(2).ToList();
+            //print out toptwo
+            Console.WriteLine($"Top two: {topTwo[0].Name} {topTwo[0].Probability}, {topTwo[1].Name} {topTwo[1].Probability}");
+            questionCount++;
+        }
+
         while (!readyToGuess)
         {
-            foreach (var question in GetQuestions())
+            foreach (var question in GetLoopQuestions())
             {
+                if (correctlyAnsweredQuestions.Contains(question.Key))
+                {
+                    // Skip this question if it has been correctly answered
+                    continue;
+                }
+                Console.WriteLine($"Number of footballers with probability higher than 0: {getHighProbabilityFootballers()}");
+                DisplayRandomFootballer();
                 Console.WriteLine(question.Value);
                 string answer = Console.ReadLine().ToLower();
 
                 // Update probabilities based on user responses
-                UpdateProbabilities(question.Key, answer, meanAge, topNationality, topPosition, meanRating);
+                UpdateProbabilities(question.Key, answer);
 
+                questionCount++;
                 var topTwo = footballers.OrderByDescending(f => f.Probability).Take(2).ToList();
                 //print out toptwo
                 Console.WriteLine($"Top two: {topTwo[0].Name} {topTwo[0].Probability}, {topTwo[1].Name} {topTwo[1].Probability}");
@@ -77,6 +114,7 @@ public class BayesianNetwork
         if (Console.ReadLine().ToLower() == "yes")
         {
             Console.WriteLine("I guessed correctly! Thanks for playing!");
+            Console.WriteLine($"Number of questions asked: {questionCount}");
         }
         else
         {
@@ -87,26 +125,37 @@ public class BayesianNetwork
         }
     }
 
-    private Dictionary<int, string> GetQuestions()
+    private Dictionary<int, string> GetOneOffQuestions()
     {
-        meanAge = (int)(CalculateMeanAge());
-        topNationality = FindTopNationality();
-        topPosition = FindTopPosition();
-        meanRating = (int)(CalculateMeanRating());
-
         return new Dictionary<int, string>()
         {
-            {1, $"Is your footballer under {meanAge} years old?"},
-            {2, "Is your footballer worth less than 80000000EUR?"},
-            {3, $"Is your player's position {topPosition}?"},
-            {4, $"Is your footballer from {topNationality}?"},
-            {5, "Is your footballer's international reputation higher than 1?"},
-            {6, "Is your footballer right foot dominant?"},
-            {7, "Does your footballer have an overall rating of {meanRating} or higher?"}
+            {5, "Is your footballer's international reputation greater than or equal to 2?"},
+            {6, "Is your footballer right foot dominant?"}
         };
     }
 
-    private void UpdateProbabilities(int questionKey, string answer, int meanAge, string topNationality, string topPosition, int meanRating)
+    private Dictionary<int, string> GetLoopQuestions()
+    {
+        medianAge = (int)(CalculateMedianAge());
+        topNationality = FindTopNationality();
+        topPosition = FindTopPosition();
+        medianRating = (int)(CalculateMedianRating());
+        medianValue = (int)(CalculateMedianValue());
+        medianJerseyNumber = (int)(CalculateMedianJerseyNumber());
+        UpdateTagsFromProbableFootballers();
+
+        return new Dictionary<int, string>()
+        {
+            {1, $"Is your footballer greater than or equal to {medianAge} years old?"},
+            {2, $"Is your footballer's value greater than or equal to {medianValue.ToString("N0")}EUR?"},
+            {3, $"Is your player's position {topPosition}?"},
+            {4, $"Is your footballer from {topNationality}?"},
+            {7, $"Is your footballer's overall rating greater than or equal to {medianRating}?"},
+            {8, $"Is your footballer's jersey number greater than or equal to {medianJerseyNumber}?"},
+        };
+    }
+
+    private void UpdateProbabilities(int questionKey, string answer)
     {
         double totalProbability = 0;
 
@@ -115,22 +164,22 @@ public class BayesianNetwork
             double probability = GetProbability(footballer);
 
             // Adjust probabilities based on user responses
-            if (questionKey == 1 && answer == "yes" && footballer.Age < meanAge)
+            if (questionKey == 1 && answer == "yes" && footballer.Age >= medianAge)
             {
-                // Adjust probability for being under meanAge
+                // Adjust probability for being under medianAge
                 probability *= 2; // Double the probability (for simplicity)
             }
-            else if (questionKey == 1 && answer == "no" && footballer.Age >= meanAge)
+            else if (questionKey == 1 && answer == "no" && footballer.Age < medianAge)
             {
-                // Adjust probability for being older than meanAge
+                // Adjust probability for being older than medianAge
                 probability *= 2; // Double the probability (for simplicity)
             }
-            else if (questionKey == 2 && answer == "yes" && footballer.Value < 80000000)
+            else if (questionKey == 2 && answer == "yes" && footballer.Value >= medianValue)
             {
                 // Adjust probability for being worth less than 80000000
                 probability *= 2;
             }
-            else if (questionKey == 2 && answer == "no" && footballer.Value >= 80000000)
+            else if (questionKey == 2 && answer == "no" && footballer.Value < medianValue)
             {
                 // Adjust probability for being worth 80000000 or more
                 probability *= 2;
@@ -139,6 +188,7 @@ public class BayesianNetwork
             {
                 // Adjust probability for being topPosition
                 probability *= 2;
+                correctlyAnsweredQuestions.Add(questionKey);
             }
             else if (questionKey == 3 && answer == "no" && footballer.Position.ToLower() != topPosition.ToLower())
             {
@@ -155,12 +205,12 @@ public class BayesianNetwork
                 // Adjust probability for not being nationality
                 probability *= 2;
             }
-            else if (questionKey == 5 && answer == "yes" && footballer.InternationalReputation > 1)
+            else if (questionKey == 5 && answer == "yes" && footballer.InternationalReputation >= 2)
             {
                 // Adjust probability for having international reputation higher than 1
                 probability *= 2;
             }
-            else if (questionKey == 5 && answer == "no" && footballer.InternationalReputation <= 1)
+            else if (questionKey == 5 && answer == "no" && footballer.InternationalReputation < 2)
             {
                 // Adjust probability for having international reputation 1 or lower
                 probability *= 2;
@@ -175,15 +225,38 @@ public class BayesianNetwork
                 // Adjust probability for having left foot dominant
                 probability *= 2;
             }
-            else if (questionKey == 7 && answer == "yes" && footballer.Rating >= meanRating)
+            else if (questionKey == 7 && answer == "yes" && footballer.Rating >= medianRating)
             {
-                // Adjust probability for having overall rating of meanRating or higher
+                // Adjust probability for having overall rating of medianRating or higher
                 probability *= 2;
             }
-            else if (questionKey == 7 && answer == "no" && footballer.Rating < meanRating)
+            else if (questionKey == 7 && answer == "no" && footballer.Rating < medianRating)
             {
-                // Adjust probability for having overall rating lower than meanRating
+                // Adjust probability for having overall rating lower than medianRating
                 probability *= 2;
+            }
+            else if (questionKey == 8 && answer == "yes" && footballer.JerseyNumber >= medianJerseyNumber)
+            {
+                // Adjust probability for having overall rating of medianRating or higher
+                probability *= 2;
+            }
+            else if (questionKey == 8 && answer == "no" && footballer.JerseyNumber < medianJerseyNumber)
+            {
+                // Adjust probability for having overall rating lower than medianRating
+                probability *= 2;
+            }
+            else if (questionKey == 9 && answer == "yes" && footballer.Tags.Contains(tag))
+            {
+                probability *= 2;
+            }
+            else if (questionKey == 9 && answer == "no" && !footballer.Tags.Contains(tag))
+            {
+                probability *= 2;
+            }
+            else
+            {
+                // If the footballer doesn't fit the criteria for any question, set their probability to 0
+                probability = 0;
             }
 
             SetProbability(footballer, probability);
@@ -196,6 +269,10 @@ public class BayesianNetwork
             double normalizedProbability = GetProbability(footballer) / totalProbability;
             SetProbability(footballer, normalizedProbability);
         }
+
+        //probabilityThreshold = totalProbability / footballers.Count;
+
+        //Console.WriteLine($"Probability threshold: {probabilityThreshold}");
     }
 
     private double GetProbability(Footballer footballer)
@@ -217,14 +294,43 @@ public class BayesianNetwork
         return footballers.OrderByDescending(f => f.Probability).First();
     }
 
-    private double CalculateMeanAge()
+    private double CalculateMedianAge()
     {
-        return footballers.Average(f => f.Age);
+        var ages = footballers
+            .Where(f => f.Probability > 0)
+            .Select(f => (double)f.Age)
+            .ToList();
+        return CalculateMedian(ages);
+    }
+    private double CalculateMedian(List<double> numbers)
+    {
+        var sortedNumbers = numbers.OrderBy(n => n).ToList();
+
+        if (!sortedNumbers.Any())
+        {
+            throw new InvalidOperationException("No numbers provided.");
+        }
+
+        double median;
+        int middleIndex = sortedNumbers.Count / 2;
+        if (sortedNumbers.Count % 2 == 0)
+        {
+            // If there is an even number of observations, the median is the average of the two middle numbers
+            median = (sortedNumbers[middleIndex - 1] + sortedNumbers[middleIndex]) / 2.0;
+        }
+        else
+        {
+            // If there is an odd number of observations, the median is the middle number
+            median = sortedNumbers[middleIndex];
+        }
+
+        return median;
     }
 
     private string FindTopNationality()
     {
         return footballers
+            .Where(f => f.Probability > 0)
             .GroupBy(f => f.Nationality)
             .OrderByDescending(g => g.Count())
             .First()
@@ -234,15 +340,115 @@ public class BayesianNetwork
     private string FindTopPosition()
     {
         return footballers
+            .Where(f => f.Probability > 0)
             .GroupBy(f => f.Position)
             .OrderByDescending(g => g.Count())
             .First()
             .Key;
     }
 
-    private double CalculateMeanRating()
+    private double CalculateMedianRating()
     {
-        return footballers.Average(f => f.Rating);
+        var ratings = footballers
+            .Where(f => f.Probability > 0)
+            .Select(f => (double)f.Rating)
+            .ToList();
+        return CalculateMedian(ratings);
+    }
+
+    private double CalculateMedianValue()
+    {
+        var values = footballers
+            .Where(f => f.Probability > 0)
+            .Select(f => (double)f.Value)
+            .ToList();
+        return CalculateMedian(values);
+    }
+
+    private double CalculateMedianJerseyNumber()
+    {
+        var jerseyNumbers = footballers
+            .Where(f => f.Probability > 0)
+            .Select(f => (double)f.JerseyNumber)
+            .ToList();
+        return CalculateMedian(jerseyNumbers);
+    }
+
+    private void UpdateTagsFromProbableFootballers()
+    {
+        tags = footballers
+            .Where(f => GetProbability(f) > 0)
+            .SelectMany(f => f.Tags)
+            .Distinct()
+            .ToList();
+    }
+
+    private int getHighProbabilityFootballers()
+    {
+        int count = 0;
+        foreach (var footballer in footballers)
+        {
+            if (footballer.Probability > 0)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private void SelectRandomFootballer()
+    {
+        Random random = new Random();
+        int index = random.Next(footballers.Count);
+        randomFootballer = footballers[index];
+    }
+
+    private void DisplayRandomFootballer()
+    {
+        Console.WriteLine($"Random footballer: {randomFootballer.Name}");
+        Console.WriteLine($"Age: {randomFootballer.Age}");
+        Console.WriteLine($"Nationality: {randomFootballer.Nationality}");
+        Console.WriteLine($"Club: {randomFootballer.Club}");
+        Console.WriteLine($"Value: {randomFootballer.Value.ToString("N0")}");
+        Console.WriteLine($"Foot: {randomFootballer.Foot}");
+        Console.WriteLine($"International Reputation: {randomFootballer.InternationalReputation}");
+        Console.WriteLine($"Position: {randomFootballer.Position}");
+        Console.WriteLine($"Rating: {randomFootballer.Rating}");
+        Console.WriteLine($"Player probability: {randomFootballer.Probability}");
+        if (randomFootballer.JerseyNumber > 0)
+        {
+            Console.WriteLine($"Jersey Number: {randomFootballer.JerseyNumber}");
+        }
+        else
+        {
+            Console.WriteLine($"Jersey Number: Unknown");
+        }
+        Console.WriteLine($"Tags: {string.Join(", ", randomFootballer.Tags)}");
+    }
+
+    private void DisplayFirstFootballer()
+    {
+        var firstFootballer = footballers[0];
+
+        Console.WriteLine($"First footballer: {firstFootballer.Name}");
+        Console.WriteLine($"Age: {firstFootballer.Age}");
+        Console.WriteLine($"Nationality: {firstFootballer.Nationality}");
+        Console.WriteLine($"Club: {firstFootballer.Club}");
+        Console.WriteLine($"Value: {firstFootballer.Value.ToString("N0")}");
+        Console.WriteLine($"Foot: {firstFootballer.Foot}");
+        Console.WriteLine($"International Reputation: {firstFootballer.InternationalReputation}");
+        Console.WriteLine($"Position: {firstFootballer.Position}");
+        Console.WriteLine($"Rating: {firstFootballer.Rating}");
+        Console.WriteLine($"Player probability: {firstFootballer.Probability}");
+        if (firstFootballer.JerseyNumber > 0)
+        {
+            Console.WriteLine($"Jersey Number: {firstFootballer.JerseyNumber}");
+        }
+        else
+        {
+            Console.WriteLine($"Jersey Number: Unknown");
+        }
+        Console.WriteLine($"Tags: {string.Join(", ", firstFootballer.Tags)}");
     }
 }
 
@@ -250,20 +456,6 @@ class Program
 {
     static void Main()
     {
-        /* List<Footballer> footballers = new List<Footballer>
-        {
-            new Footballer { Name = "L. Messi", Age = 32, Nationality = "Argentina", Club = "FC Barcelona", Value = 95500000, Foot = "Left", InternationalReputation = 5, Position = "RW", Rating = 94 },
-            new Footballer { Name = "Cristiano Ronaldo", Age = 34, Nationality = "Portugal", Club = "Juventus", Value = 58500000, Foot = "Right", InternationalReputation = 5, Position = "LW", Rating = 93 },
-            new Footballer { Name = "Neymar Jr", Age = 27, Nationality = "Brazil", Club = "Paris Saint-Germain", Value = 105500000, Foot = "Right", InternationalReputation = 5, Position = "CAM", Rating = 92 },
-            new Footballer { Name = "J. Oblak", Age = 26, Nationality = "Slovenia", Club = "Atlético Madrid", Value = 77500000, Foot = "Right", InternationalReputation = 3, Position = "GK", Rating = 91 },
-            new Footballer { Name = "E. Hazard", Age = 28, Nationality = "Belgium", Club = "Real Madrid", Value = 90000000, Foot = "Right", InternationalReputation = 4, Position = "LW", Rating = 91 },
-            new Footballer { Name = "K. De Bruyne", Age = 28, Nationality = "Belgium", Club = "Manchester City", Value = 90000000, Foot = "Right", InternationalReputation = 4, Position = "RCM", Rating = 91 },
-            new Footballer { Name = "M. ter Stegen", Age = 27, Nationality = "Germany", Club = "FC Barcelona", Value = 67500000, Foot = "Right", InternationalReputation = 3, Position = "GK", Rating = 90 },
-            new Footballer { Name = "V. van Dijk", Age = 27, Nationality = "Netherlands", Club = "Liverpool", Value = 78000000, Foot = "Right", InternationalReputation = 3, Position = "LCB", Rating = 90 },
-            new Footballer { Name = "L. Modric", Age = 33, Nationality = "Croatia", Club = "Real Madrid", Value = 45000000, Foot = "Right", InternationalReputation = 4, Position = "RCM", Rating = 90 },
-            new Footballer { Name = "M. Salah", Age = 27, Nationality = "Egypt", Club = "Liverpool", Value = 80500000, Foot = "Left", InternationalReputation = 3, Position = "RW", Rating = 90 },
-        }; */
-
         static List<Footballer> LoadFootballersFromCSV(string path)
         {
             List<Footballer> footballers = new List<Footballer>();
@@ -290,7 +482,12 @@ class Program
                         Foot = values[15],
                         InternationalReputation = int.Parse(values[16]),
                         Position = values[24],
-                        Rating = int.Parse(values[10])
+                        Rating = int.Parse(values[10]),
+                        JerseyNumber = int.TryParse(values[25], out int jerseyNumber) ? jerseyNumber : -1,
+                        Tags = values[23].Split(',')
+                                         .Select(tag => tag.Trim().Replace("#", ""))
+                                         .Where(tag => !string.IsNullOrWhiteSpace(tag))
+                                         .ToList()
                     };
 
                     footballers.Add(footballer);
