@@ -23,7 +23,8 @@ public class Footballer
 public class BayesianNetwork
 {
     private List<Footballer> footballers;
-    private List<string> tags;
+    private List<string> tagsList;
+    private List<string> chosenTags = new List<string>();
     private string topNationality, topPosition, tag;
     private int medianRating, medianAge, medianValue, medianJerseyNumber, questionCount = 0;
     private Footballer randomFootballer;
@@ -52,16 +53,18 @@ public class BayesianNetwork
         SelectRandomFootballer();
         UpdateTagsFromProbableFootballers();
 
-        Console.WriteLine($"Tags: {string.Join(", ", tags)}");
-        Console.WriteLine($"Number of tags: {tags.Count}");
+        Console.WriteLine($"Tags: {string.Join(", ", tagsList)}");
+        Console.WriteLine($"Number of tags: {tagsList.Count}");
 
         bool readyToGuess = false;
 
         foreach (var question in GetOneOffQuestions())
         {
-            Console.WriteLine($"Number of footballers with probability higher than 0: {getHighProbabilityFootballers()}");
+            questionCount++;
+            Console.WriteLine($"\n\nNumber of footballers with probability higher than 0: {getHighProbabilityFootballers()}");
             DisplayRandomFootballer();
-            DisplayFirstFootballer();
+            Console.WriteLine($"\nQuestion count: {questionCount}");
+            //DisplayFirstFootballer();
             Console.WriteLine(question.Value);
             string answer = Console.ReadLine().ToLower();
             // Update probabilities based on user responses
@@ -70,31 +73,33 @@ public class BayesianNetwork
             var topTwo = footballers.OrderByDescending(f => f.Probability).Take(2).ToList();
             //print out toptwo
             Console.WriteLine($"Top two: {topTwo[0].Name} {topTwo[0].Probability}, {topTwo[1].Name} {topTwo[1].Probability}");
-            questionCount++;
         }
 
         while (!readyToGuess)
         {
             foreach (var question in GetLoopQuestions())
             {
+                questionCount++;
                 if (correctlyAnsweredQuestions.Contains(question.Key))
                 {
-                    // Skip this question if it has been correctly answered
+                    // Skip these questions if it has been correctly answered
+                    questionCount--;
                     continue;
                 }
-                Console.WriteLine($"Number of footballers with probability higher than 0: {getHighProbabilityFootballers()}");
+                Console.WriteLine($"\n\nNumber of footballers with probability higher than 0: {getHighProbabilityFootballers()}");
                 DisplayRandomFootballer();
+                Console.WriteLine($"\nQuestion count: {questionCount}");
+                //DisplayFirstFootballer();
                 Console.WriteLine(question.Value);
                 string answer = Console.ReadLine().ToLower();
 
                 // Update probabilities based on user responses
                 UpdateProbabilities(question.Key, answer);
 
-                questionCount++;
                 var topTwo = footballers.OrderByDescending(f => f.Probability).Take(2).ToList();
                 //print out toptwo
                 Console.WriteLine($"Top two: {topTwo[0].Name} {topTwo[0].Probability}, {topTwo[1].Name} {topTwo[1].Probability}");
-                if (topTwo.Count < 2 || topTwo[0].Probability > topTwo[1].Probability + 0.001)
+                if (topTwo.Count < 2 || topTwo[0].Probability > topTwo[1].Probability + 0.001 || questionCount == 20)
                 {
                     // If there's only one footballer left, or if the footballer with the highest probability
                     // has a probability higher than the second highest, make a guess
@@ -118,10 +123,8 @@ public class BayesianNetwork
         }
         else
         {
-            Console.WriteLine("I need to learn more. Who was the footballer?");
-            string newFootballerName = Console.ReadLine();
-            // Update probabilities with the new information (not implemented in this example)
-            Console.WriteLine($"Thanks for teaching me about {newFootballerName}!");
+            Console.WriteLine("I couldn't figure it out :( Thanks for playing!");
+            Console.ReadLine();
         }
     }
 
@@ -130,7 +133,8 @@ public class BayesianNetwork
         return new Dictionary<int, string>()
         {
             {5, "Is your footballer's international reputation greater than or equal to 2?"},
-            {6, "Is your footballer right foot dominant?"}
+            {6, "Is your footballer right foot dominant?"},
+            {10, "Does your footballer have any tags?"}
         };
     }
 
@@ -144,6 +148,26 @@ public class BayesianNetwork
         medianJerseyNumber = (int)(CalculateMedianJerseyNumber());
         UpdateTagsFromProbableFootballers();
 
+        //loop through chosenTags and remove from tagsList
+        foreach (var tag in chosenTags)
+        {
+            tagsList.Remove(tag);
+        }
+        //output chosenTags
+        Console.WriteLine($"Chosen tags: {string.Join(", ", chosenTags)}");
+        Console.WriteLine($"Tags: {string.Join(", ", tagsList)}");
+
+        if (tagsList.Count > 0)
+        {
+            // Choose a random tag from the list
+            Random random = new Random();
+            int randomTagIndex = random.Next(tagsList.Count);
+            Console.WriteLine($"Random tag index: {randomTagIndex}");
+            tag = tagsList[randomTagIndex];
+            Console.WriteLine($"Tag: {tag}");
+            chosenTags.Add(tag);
+        }
+
         return new Dictionary<int, string>()
         {
             {1, $"Is your footballer greater than or equal to {medianAge} years old?"},
@@ -152,8 +176,10 @@ public class BayesianNetwork
             {4, $"Is your footballer from {topNationality}?"},
             {7, $"Is your footballer's overall rating greater than or equal to {medianRating}?"},
             {8, $"Is your footballer's jersey number greater than or equal to {medianJerseyNumber}?"},
+            {9, $"Does your footballer have the tag {tag}?"}
         };
     }
+
 
     private void UpdateProbabilities(int questionKey, string answer)
     {
@@ -248,10 +274,20 @@ public class BayesianNetwork
             else if (questionKey == 9 && answer == "yes" && footballer.Tags.Contains(tag))
             {
                 probability *= 2;
+
             }
             else if (questionKey == 9 && answer == "no" && !footballer.Tags.Contains(tag))
             {
                 probability *= 2;
+            }
+            else if (questionKey == 10 && answer == "yes" && footballer.Tags.Count > 0)
+            {
+                probability *= 2;
+            }
+            else if (questionKey == 10 && answer == "no" && footballer.Tags.Count == 0)
+            {
+                probability *= 2;
+                correctlyAnsweredQuestions.Add(9);
             }
             else
             {
@@ -290,8 +326,11 @@ public class BayesianNetwork
 
     private Footballer MakeGuess()
     {
-        // Return the footballer with the highest probability
-        return footballers.OrderByDescending(f => f.Probability).First();
+        // Order by probability first, then by value
+        return footballers
+            .OrderByDescending(f => f.Probability)
+            .ThenByDescending(f => f.Value)
+            .First();
     }
 
     private double CalculateMedianAge()
@@ -376,7 +415,7 @@ public class BayesianNetwork
 
     private void UpdateTagsFromProbableFootballers()
     {
-        tags = footballers
+        tagsList = footballers
             .Where(f => GetProbability(f) > 0)
             .SelectMany(f => f.Tags)
             .Distinct()
@@ -405,7 +444,8 @@ public class BayesianNetwork
 
     private void DisplayRandomFootballer()
     {
-        Console.WriteLine($"Random footballer: {randomFootballer.Name}");
+        Console.WriteLine($"Randomly selected footballer, you can use this for reference or choose your own!");
+        Console.WriteLine($"Name: {randomFootballer.Name}");
         Console.WriteLine($"Age: {randomFootballer.Age}");
         Console.WriteLine($"Nationality: {randomFootballer.Nationality}");
         Console.WriteLine($"Club: {randomFootballer.Club}");
@@ -423,7 +463,14 @@ public class BayesianNetwork
         {
             Console.WriteLine($"Jersey Number: Unknown");
         }
-        Console.WriteLine($"Tags: {string.Join(", ", randomFootballer.Tags)}");
+        if (randomFootballer.Tags.Count > 0)
+        {
+            Console.WriteLine($"Tags: {string.Join(", ", randomFootballer.Tags)}");
+        }
+        else
+        {
+            Console.WriteLine("No tags");
+        }
     }
 
     private void DisplayFirstFootballer()
