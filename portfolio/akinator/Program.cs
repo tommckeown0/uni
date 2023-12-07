@@ -5,6 +5,7 @@ using Microsoft.VisualBasic.FileIO;
 
 public class Footballer
 {
+    // Footballer class to store information about each footballer
     public string Name { get; set; }
     public int Age { get; set; }
     public string Nationality { get; set; }
@@ -66,6 +67,7 @@ public class BayesianNetwork
             Console.WriteLine($"\nQuestion count: {questionCount}");
             //DisplayFirstFootballer();
             Console.WriteLine(question.Value);
+            Console.WriteLine("Yes [y] No [n] Probably [p] Probably not [r] I don't know [d]: ");
             string answer = Console.ReadLine().ToLower();
             // Update probabilities based on user responses
             UpdateProbabilities(question.Key, answer);
@@ -91,6 +93,7 @@ public class BayesianNetwork
                 Console.WriteLine($"\nQuestion count: {questionCount}");
                 //DisplayFirstFootballer();
                 Console.WriteLine(question.Value);
+                Console.WriteLine("Yes [y] No [n] Probably [p] Probably not [r] I don't know [d]: ");
                 string answer = Console.ReadLine().ToLower();
 
                 // Update probabilities based on user responses
@@ -101,9 +104,16 @@ public class BayesianNetwork
                 Console.WriteLine($"Top two: {topTwo[0].Name} {topTwo[0].Probability}, {topTwo[1].Name} {topTwo[1].Probability}");
                 if (topTwo.Count < 2 || topTwo[0].Probability > topTwo[1].Probability + 0.001 || questionCount == 20)
                 {
+                    if (questionCount == 20)
+                    {
+                        Console.WriteLine("I've asked 20 questions, I'm ready to make a guess!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("I'm ready to make a guess!");
+                    }
                     // If there's only one footballer left, or if the footballer with the highest probability
                     // has a probability higher than the second highest, make a guess
-                    Console.WriteLine("I'm ready to make a guess!");
                     readyToGuess = true;
                     break;
                 }
@@ -181,7 +191,7 @@ public class BayesianNetwork
     }
 
 
-    private void UpdateProbabilities(int questionKey, string answer)
+    /* private void UpdateProbabilities(int questionKey, string answer)
     {
         double totalProbability = 0;
 
@@ -305,10 +315,107 @@ public class BayesianNetwork
             double normalizedProbability = GetProbability(footballer) / totalProbability;
             SetProbability(footballer, normalizedProbability);
         }
+    } */
 
-        //probabilityThreshold = totalProbability / footballers.Count;
+    private void UpdateProbabilities(int questionKey, string answer)
+    {
+        double totalProbability = 0;
 
-        //Console.WriteLine($"Probability threshold: {probabilityThreshold}");
+        var conditions = new List<(Func<Footballer, bool> condition, double factor, bool correctAnswer)>
+        {
+            (f => questionKey == 1 && answer == "y" && f.Age >= medianAge, 2, false),
+            (f => questionKey == 1 && answer == "n" && f.Age < medianAge, 2, false),
+            (f => questionKey == 1 && answer == "p" && f.Age >= medianAge, 1.5, false),
+            (f => questionKey == 1 && answer == "r" && f.Age < medianAge, 0.5, false),
+            (f => questionKey == 1 && answer == "d", 1, false),
+            (f => questionKey == 2 && answer == "y" && f.Value >= medianValue, 2, false),
+            (f => questionKey == 2 && answer == "n" && f.Value < medianValue, 2, false),
+            (f => questionKey == 2 && answer == "p" && f.Value >= medianValue, 1.5, false),
+            (f => questionKey == 2 && answer == "r" && f.Value < medianValue, 0.5, false),
+            (f => questionKey == 2 && answer == "d", 1, false),
+            (f => questionKey == 3 && answer == "y" && f.Position.ToLower() == topPosition.ToLower(), 2, true),
+            (f => questionKey == 3 && answer == "n" && f.Position.ToLower() != topPosition.ToLower(), 2, false),
+            (f => questionKey == 3 && answer == "p" && f.Position.ToLower() == topPosition.ToLower(), 1.5, false),
+            (f => questionKey == 3 && answer == "r" && f.Position.ToLower() != topPosition.ToLower(), 0.5, false),
+            (f => questionKey == 3 && answer == "d", 1, false),
+            (f => questionKey == 4 && answer == "y" && f.Nationality.ToLower() == topNationality.ToLower(), 2, false),
+            (f => questionKey == 4 && answer == "n" && f.Nationality.ToLower() != topNationality.ToLower(), 2, false),
+            (f => questionKey == 4 && answer == "p" && f.Nationality.ToLower() == topNationality.ToLower(), 1.5, false),
+            (f => questionKey == 4 && answer == "r" && f.Nationality.ToLower() != topNationality.ToLower(), 0.5, false),
+            (f => questionKey == 4 && answer == "d", 1, false),
+            (f => questionKey == 5 && answer == "y" && f.InternationalReputation >= 2, 2, false),
+            (f => questionKey == 5 && answer == "n" && f.InternationalReputation < 2, 2, false),
+            (f => questionKey == 5 && answer == "p" && f.InternationalReputation >= 2, 1.5, false),
+            (f => questionKey == 5 && answer == "r" && f.InternationalReputation < 2, 0.5, false),
+            (f => questionKey == 5 && answer == "d", 1, false),
+            (f => questionKey == 6 && answer == "y" && f.Foot.ToLower() == "right", 2, false),
+            (f => questionKey == 6 && answer == "n" && f.Foot.ToLower() == "left", 2, false),
+            (f => questionKey == 6 && answer == "p" && f.Foot.ToLower() == "right", 1.5, false),
+            (f => questionKey == 6 && answer == "r" && f.Foot.ToLower() == "left", 0.5, false),
+            (f => questionKey == 6 && answer == "d", 1, false),
+            (f => questionKey == 7 && answer == "y" && f.Rating >= medianRating, 2, false),
+            (f => questionKey == 7 && answer == "n" && f.Rating < medianRating, 2, false),
+            (f => questionKey == 7 && answer == "p" && f.Rating >= medianRating, 1.5, false),
+            (f => questionKey == 7 && answer == "r" && f.Rating < medianRating, 0.5, false),
+            (f => questionKey == 7 && answer == "d", 1, false),
+            (f => questionKey == 8 && answer == "y" && f.JerseyNumber >= medianJerseyNumber, 2, false),
+            (f => questionKey == 8 && answer == "n" && f.JerseyNumber < medianJerseyNumber, 2, false),
+            (f => questionKey == 8 && answer == "p" && f.JerseyNumber >= medianJerseyNumber, 1.5, false),
+            (f => questionKey == 8 && answer == "r" && f.JerseyNumber < medianJerseyNumber, 0.5, false),
+            (f => questionKey == 8 && answer == "d", 1, false),
+            (f => questionKey == 9 && answer == "y" && f.Tags.Contains(tag), 2, false),
+            (f => questionKey == 9 && answer == "n" && !f.Tags.Contains(tag), 2, false),
+            (f => questionKey == 9 && answer == "p" && f.Tags.Contains(tag), 1.5, false),
+            (f => questionKey == 9 && answer == "r" && !f.Tags.Contains(tag), 0.5, false),
+            (f => questionKey == 9 && answer == "d", 1, false),
+            (f => questionKey == 10 && answer == "y" && f.Tags.Count > 0, 2, false),
+            (f => questionKey == 10 && answer == "n" && f.Tags.Count == 0, 2, true),
+            (f => questionKey == 10 && answer == "p" && f.Tags.Count > 0, 1.5, false),
+            (f => questionKey == 10 && answer == "r" && f.Tags.Count == 0, 0.5, false),
+            (f => questionKey == 10 && answer == "d", 1, false)
+        };
+
+        foreach (var footballer in footballers)
+        {
+            double probability = GetProbability(footballer);
+            bool conditionMet = false;
+
+            foreach (var (condition, factor, correctAnswer) in conditions)
+            {
+                if (condition(footballer))
+                {
+                    probability *= factor;
+                    conditionMet = true;
+                    if (correctAnswer)
+                    {
+                        if (questionKey == 10 && answer == "n" && footballer.Tags.Count == 0)
+                        {
+                            correctlyAnsweredQuestions.Add(9);
+                        }
+                        else
+                        {
+                            correctlyAnsweredQuestions.Add(questionKey);
+                        }
+                    }
+                    break;
+                }
+            }
+
+            if (!conditionMet)
+            {
+                probability = 0;
+            }
+
+            SetProbability(footballer, probability);
+            totalProbability += probability;
+        }
+
+        // Normalize probabilities to ensure they sum to 1
+        foreach (var footballer in footballers)
+        {
+            double normalizedProbability = GetProbability(footballer) / totalProbability;
+            SetProbability(footballer, normalizedProbability);
+        }
     }
 
     private double GetProbability(Footballer footballer)
