@@ -1,4 +1,4 @@
-Portfolio contains assignment tasks from Artificial Intelligence modeule.
+Portfolio contains assignment tasks from Artificial Intelligence module.
 
 The module assignment is contained in the Akinator directory: 
  - Large dataset of footballers including many attributes e.g. age, team played for, salary, nationality etc.
